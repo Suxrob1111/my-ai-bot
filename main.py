@@ -9,7 +9,7 @@ TELEGRAM_TOKEN = "8857220596:AAExYxcrW4iB-gmlmHcp4d3dlz3R63tv_YM"
 GEMINI_API_KEY = "AIzaSyChNvtSYZ5bqWp2lhEbf71k7AFy0hnDIlg"
 
 # 2. GEMINI MIJOZI
-client = genai.Client(api_key=GEMINI_API_KEY)
+client = genai.Client())
 bot = Bot(token=TELEGRAM_TOKEN)
 dp = Dispatcher()
 
