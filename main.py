@@ -30,16 +30,7 @@ async def handle(request):
     return web.Response(text="Bot is running!")
 
 async def main():
-    app = web.Application()
-    app.router.add_get("/", handle)
-    runner = web.AppRunner(app)
-    await runner.setup()
-    # Server portini sozlash
-    port = int(os.environ.get("PORT", 10000))
-    site = web.TCPSite(runner, '0.0.0.0', port)
-    
-    print(f"Bot serverda {port}-portda ishga tushdi...")
-    asyncio.create_task(site.start())
+    print("Bot muvaffaqiyatli ishga tushdi va xabarlarni kutmoqda...")
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
