@@ -5,7 +5,7 @@ from google import genai
 from aiohttp import web
 
 # 1. TOKENLAR
-TELEGRAM_TOKEN = "8857220596:AAExYxcrW4iB-gmlmHcp4d3dlz3R63tv_YM"
+TELEGRAM_TOKEN = "8857220596:AAFGPn651vKdDLHovx1xi-1ENztgMVgeA5c"
 GEMINI_API_KEY = "AIzaSyChNvtSYZ5bqWp2lhEbf71k7AFy0hnDIlg"
 
 # 2. GEMINI MIJOZI
