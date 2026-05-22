@@ -33,5 +33,46 @@ async def main():
     print("Bot muvaffaqiyatli ishga tushdi va xabarlarni kutmoqda...")
     await dp.start_polling(bot)
 
+# Render port so'rashini aldash uchun veb-server (soxta sahifa)
+    import os
+    from aiohttp import web
+    
+    async def handle(request):
+        return web.Response(text="Bot is running smoothly!")
+        
+    app = web.Application()
+    app.router.add_get('/', handle)
+    
+    runner = web.AppRunner(app)
+    await runner.setup()
+    
+    port = int(os.environ.get("PORT", 10000))
+    site = web.TCPSite(runner, "0.0.0.0", port)
+    await site.start()
+    
+    # Botingiz xabarlarni qabul qilishi uchun asosiy qism
+    await dp.start_polling(bot)
+
+# Render port so'rashini aldash uchun veb-server (soxta sahifa)
+    import os
+    from aiohttp import web
+    
+    async def handle(request):
+        return web.Response(text="Bot is running smoothly!")
+        
+    app = web.Application()
+    app.router.add_get('/', handle)
+    
+    runner = web.AppRunner(app)
+    await runner.setup()
+    
+    port = int(os.environ.get("PORT", 10000))
+    site = web.TCPSite(runner, "0.0.0.0", port)
+    await site.start()
+    
+    # Botingiz xabarlarni qabul qilishi uchun asosiy qism
+    await dp.start_polling(bot)
+
 if __name__ == "__main__":
+    import asyncio
     asyncio.run(main())
