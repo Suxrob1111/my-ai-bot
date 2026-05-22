@@ -6,7 +6,7 @@ from aiohttp import web
 
 # 1. TOKENLAR
 TELEGRAM_TOKEN = "8857220596:AAFGPn651vKdDLHovx1xi-1ENztgMVgeA5c"
-GEMINI_API_KEY = "AIzaSyChNvtSYZ5bqWp2lhEbf71k7AFy0hnDIlg"
+GEMINI_API_KEY = "AIzaSyDEV7f3JOnMYbXxgI8GGzz-XkG-wusAD-I"
 
 # 2. GEMINI MIJOZI
 client = genai.Client(api_key=GEMINI_API_KEY)
