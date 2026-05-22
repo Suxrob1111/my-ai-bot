@@ -4,6 +4,16 @@ from aiogram import Bot, Dispatcher, types
 from google import genai
 from aiohttp import web
 
+async def handle(request):
+    return web.Response(text="Bot is running!")
+
+async def start_webhook():
+    app = web.Application()
+    app.router.add_get('/', handle)
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, '0.0.0.0', int(os.environ.get('PORT', 10000)))
+    await site.start()
 # 1. TOKENLAR
 TELEGRAM_TOKEN = "8857220596:AAFGPn651vKdDLHovx1xi-1ENztgMVgeA5c"
 GEMINI_API_KEY = "AIzaSyASywyQvlNncxWZHmDgGp9a4B6xYbuCcSI"
@@ -69,8 +79,8 @@ async def main():
     port = int(os.environ.get("PORT", 10000))
     site = web.TCPSite(runner, "0.0.0.0", port)
     await site.start()
-    
-    # Botingiz xabarlarni qabul qilishi uchun asosiy qism
+    asyncio.create_task(start_webhook())
+    #asyncio.create_task(start_webhook()) Botingiz xabarlarni qabul qilishi uchun asosiy qism
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
