@@ -27,8 +27,25 @@ async def generate_content(message: types.Message):
         await kutish_xabari.edit_text("❌ Kontent yaratishda xatolik yuz berdi. Keyinroq urinib ko'ring.")
 
 async def main():
+    import os
+    from aiohttp import web
+    
+    # Render majburiy so'raydigan portni fonda soxta veb-server bilan band qilamiz
+    async def handle(request):
+        return web.Response(text="Bot is running!")
+        
+    app = web.Application()
+    app.router.add_get("/", handle)
+    runner = web.AppRunner(app)
+    await runner.setup()
+    
+    port = int(os.environ.get("PORT", 10000))
+    site = web.TCPSite(runner, '0.0.0.0', port)
+    await site.start()
+    
     print("Bot muvaffaqiyatli ishga tushdi va xabarlarni kutyapti...")
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
+    import asyncio
     asyncio.run(main())
