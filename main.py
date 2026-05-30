@@ -3,7 +3,7 @@ from aiogram import Bot, Dispatcher, types
 from google import genai
 
 # TOKENLAR
-TELEGRAM_TOKEN = "8851213930:AAESw7UESMY7L_U_kO4LVQL16B0azG_xG2g"
+TELEGRAM_TOKEN = "8754069714:AAFSFCLKu-HN7BIcT900GaRllbV3KjjQsBM"
 GEMINI_API_KEY = "AIzaSyAsywyQvlNncxWZHmDgGp9a4B6xyBuCcSI"
 
 # INIZALIZATSIYA
